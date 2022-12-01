@@ -1,0 +1,32 @@
+@base_url = http://localhost
+@port = 3000
+
+@url = {{base_url}}:{{port}}
+
+@product_api = {{url}}/products
+
+GET {{product_api}} HTTP/1.1
+###
+GET {{product_api}}/2 HTTP/1.1
+###
+GET {{product_api}}/price?min=90000&max=120000 HTTP/1.1
+###
+POST {{product_api}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "AirPod Pro",
+    "price": 9000,
+    "stock": 20
+}
+###
+PUT {{product_api}}/3 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Mac Mini",
+    "price": 60000,
+    "stock": 2
+}
+###
+DELETE  {{product_api}}/1 HTTP/1.1
